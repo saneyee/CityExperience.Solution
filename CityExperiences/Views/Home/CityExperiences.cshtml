@@ -1,0 +1,57 @@
+@{
+  Layout = "_Layout";
+}
+
+@section scripts {
+
+}
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">City Experiences</a>
+    </div>
+    <div class="navbar-header">
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+
+      <form class="navbar-form navbar-left" action="/experiences/tag/search" method="post">
+      <div class="form-group">
+
+        <input type="text" class="form-control" name="tag-name" placeholder="Search By KeyWord">
+
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+      <form class="navbar-form navbar-left" action="/experiences/city/search" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" name="city-name" placeholder="Search By City">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row">
+  <h2>@Model["city"].GetName() Experiences</h2>
+
+  @foreach(var experience in @Model["experiences"])
+  {
+      <div class="col-md-3">
+        <div class="well">
+          <a href="/experience/@experience.GetId()/view"><img src="@experience.GetPhotoLink()" height = "300px" style="width:100%;">
+          <div class="bottom-left">@experience.GetTitle()</div></a>
+
+        </div>
+      </div>
+}
+  </div>

@@ -1,0 +1,73 @@
+@{
+  Layout = "_Layout";
+}
+
+@section scripts {
+
+}
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">City Experiences</a>
+    </div>
+    <div class="navbar-header">
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+
+      <form class="navbar-form navbar-left" action="/experiences/tag/search" method="post">
+      <div class="form-group">
+
+        <input type="text" class="form-control" name="tag-name" placeholder="Search By KeyWord">
+
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+      <form class="navbar-form navbar-left" action="/experiences/city/search" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" name="city-name" placeholder="Search By City">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <div class="signupForm">
+      <div id="formOne">
+        <form class="form-group" action="/user/home/signup" method="post">
+          <label for="name">What is your name?</label>
+          <input type="text" class="form-control" style="width:30%" name="name" placeholder="Mandatory" required>
+          <br>
+          <label for="dob">What is your birthday? (MM/DD/YYYY)</label>
+          <input type="date" class="form-control" style="width:30%" name="dob">
+          <br>
+          <label for="country">What country are you from?</label>
+          <input type="text" class="form-control" style="width:30%" name="country">
+          <br>
+          <label for="password">What is your desired password?</label>
+          <input type="password" class="form-control" style="width:30%" name="password" placeholder="Mandatory" required>
+          <br>
+          <label for="email">What is your email address?</label>
+          <input type="text" class="form-control" style="width:30%" name="email">
+          <br>
+          <label for="phone">What is your phone number?</label>
+          <input type="text" class="form-control" style="width:30%" name="phone" value="(xxx)xxx-xxxx"><br>
+          <button type="submit" class="btn btn-info" name="button">Sign up!</button>
+        </form>
+        <form class="form-group" class="btn btn-info" action="/login" method="get">
+          <button type="submit" class="btn btn-info" name="button">Go back to login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

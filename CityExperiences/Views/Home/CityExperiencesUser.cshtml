@@ -1,0 +1,63 @@
+@{
+  Layout = "_Layout";
+}
+
+@section scripts {
+
+}
+<div class="row welcome">
+  <p class="col-md-1 col-md-offset-11">Welcome @Model["user"].GetName()</p>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">City Experiences</a>
+    </div>
+    <div class="navbar-header">
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/user/@Model["user"].GetId()/home">Home</a></li>
+
+      <form class="navbar-form navbar-left" action="/user/@Model["user"].GetId()/experiences/tag/search" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" name="tag-name" placeholder="Search By Keyword">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+      <form class="navbar-form navbar-left" action="/user/@Model["user"].GetId()/experiences/city/search" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" name="city-name" placeholder="Search By City">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      @* User Profile *@
+      <li><a href="/user/@Model["user"].GetId()/profile"><span class="glyphicon glyphicon-user"></span></a></li>
+      @* Create Experience *@
+      <li><a href="/user/@Model["user"].GetId()/experience/new"><span class="glyphicon glyphicon-plus-sign"></span> Create Experience</a></li>
+      @* Logout *@
+      <li><a href="/"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+  <h1>@Model["city"].GetName() Experiences</h1>
+  <div class="row">
+    @foreach(var experience in @Model["experiences"])
+    {
+        <div class="col-md-3">
+          <div class="well">
+            <a href="/user/@Model["user"].GetId()/experience/@experience.GetId()/view"><img src="@experience.GetPhotoLink()" height = "300px" style="width:100%;">
+            <div class="bottom-right">@experience.GetTitle()</div></a>
+
+          </div>
+        </div>
+
+  }
+    </div>

@@ -1,0 +1,77 @@
+@{
+  Layout = "_Layout";
+}
+
+@section scripts {
+
+}
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    <a class="navbar-brand" href="#">City Experiences</a>
+  </div>
+    <div class="navbar-header">
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+
+      <form class="navbar-form navbar-left" action="/experiences/tag/search" method="post">
+      <div class="form-group">
+
+        <input type="text" class="form-control" name="tag-name" placeholder="Search By KeyWord">
+
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+      <form class="navbar-form navbar-left" action="/experiences/city/search" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" name="city-name" placeholder="Search By City">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<body>
+  <div class="container">
+    <div class="well">
+      <h1>Experiences</h1>
+    @* </div> *@
+
+    <h2>@Model.GetTitle()</h2>
+    <h3>@Model.GetCityName()</h3>
+    <h3>Hosted By: @Model.GetHostName()</h3>
+    <img src='@Model.GetPhotoLink()' height = "300px" alt="">
+    <h3>@Model.GetDescription()</h3>
+    <h3>Price: $ @Model.GetPrice()</h3>
+    <h3>Tags:</h3>
+    <h4>
+    @foreach(var tag in @Model.GetTags())
+    {
+    <em><p>  @tag.GetTagName() </p></em>
+    }
+    </h4>
+
+
+
+    <form class="" action="/login" method="get">
+      <button type="submit" class="btn btn-info" name="button">Book</button>
+    </form> <br>
+    @* To build the link to go back- use modal class. *@
+
+  </div>
+</div>
+
+</body>

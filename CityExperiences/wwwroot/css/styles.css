@@ -1,0 +1,82 @@
+/*.bottom-left {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+}*/
+
+/*.well {
+
+  margin-bottom: 10px;
+}*/
+
+/*.well img {
+  display: block;
+  max-height: 500px;
+  max-width:500px;
+  width: auto;
+  height: auto;
+  align-self: center;
+}*/
+
+strong {
+  font-size: 20px;
+}
+
+
+
+.headerLogo img {
+  height: 150px;
+}
+
+
+.welcome {
+  color: blue;
+  font-size: 18px;
+}
+
+footer {
+
+  font-style: italic;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+  font-size: 20px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+.jumbotron {
+  text-align: center;
+}
+
+.container {
+  width: 80%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h3, h4 {
+  padding: 3px;
+  font-size: 20px;
+
+}
+
+label {
+  font-size: 18px;
+
+}

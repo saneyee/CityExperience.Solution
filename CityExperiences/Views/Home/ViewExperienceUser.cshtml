@@ -1,0 +1,82 @@
+@{
+  Layout = "_Layout";
+}
+
+@section scripts {
+
+}
+
+<div class="row welcome">
+  <p class="col-md-1 col-md-offset-11">Welcome @Model["user"].GetName()</p>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">City Experiences</a>
+    </div>
+    <div class="navbar-header">
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/user/@Model["user"].GetId()/home">Home</a></li>
+
+      <form class="navbar-form navbar-left" action="/user/@Model["user"].GetId()/experiences/tag/search" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" name="tag-name" placeholder="Search By Keyword">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+
+      <form class="navbar-form navbar-left" action="/user/@Model["user"].GetId()/experiences/city/search" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" name="city-name" placeholder="Search By City">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      @* User Profile *@
+      <li><a href="/user/@Model["user"].GetId()/profile"><span class="glyphicon glyphicon-user"></span></a></li>
+      @* Create Experience *@
+      <li><a href="/user/@Model["user"].GetId()/experience/new"><span class="glyphicon glyphicon-plus-sign"></span> Create Experience</a></li>
+      @* Logout *@
+      <li><a href="/"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<body>
+  <div class="container container-fluid">
+    <h1>Experience</h1>
+  <hr>
+    <h2>@Model["experience"].GetTitle()</h2>
+    <h2>@Model["experience"].GetCityName()</h2>
+
+    <h2>Hosted By: @Model["experience"].GetHostName()</h2>
+
+    <img src='@Model["experience"].GetPhotoLink()' height = "300px" alt="">
+
+    <h3>@Model["experience"].GetDescription()</h3>
+    <h3>Price: $@Model["experience"].GetPrice()</h3>
+  <h3>Tags:</h3>
+    <h4>
+    @foreach(var tag in @Model["experience"].GetTags())
+    {
+    <em><p>  @tag.GetTagName() </p></em>
+    }
+    </h4>
+
+
+
+    <form class="" action="/user/@Model["user"].GetId()/experience/@Model["experience"].GetId()/book" method="get">
+      <button type="submit" class="btn btn-info" name="button">Book</button>
+    </form> <br>
+    @* To build the link to go back- use modal class. *@
+
+  </div>
+
+</body>
