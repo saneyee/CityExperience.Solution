@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Nov 09, 2017 at 06:25 PM
+-- Generation Time: Nov 09, 2017 at 09:59 PM
 -- Server version: 5.6.35
 -- PHP Version: 7.0.15
 
@@ -39,23 +39,15 @@ CREATE TABLE `bookings` (
 --
 
 INSERT INTO `bookings` (`id`, `user_id`, `experience_id`) VALUES
-(1, 2, 23),
-(2, 2, 23),
-(3, 2, 23),
-(4, 2, 23),
-(5, 2, 23),
-(6, 2, 23),
-(7, 2, 23),
-(8, 2, 23),
-(9, 2, 23),
-(10, 2, 22),
-(11, 2, 22),
-(12, 2, 17),
-(13, 4, 18),
-(14, 2, 8),
-(15, 2, 15),
-(16, 6, 3),
-(17, 2, 22);
+(1, 7, 25),
+(2, 9, 26),
+(3, 9, 28),
+(4, 10, 25),
+(5, 11, 26),
+(6, 11, 30),
+(7, 11, 30),
+(8, 11, 30),
+(9, 11, 30);
 
 -- --------------------------------------------------------
 
@@ -119,7 +111,11 @@ INSERT INTO `experiences` (`id`, `location_id`, `user_id`, `title`, `description
 (20, 4, 6, 'London Eye cruise', 'Take a tour around the London Eye along the Thames River', 'https://d1wgio6yfhqlw1.cloudfront.net/sysimages/product/resized6/London_Eye_River_Cruise_4645_18363.jpg', 15),
 (21, 4, 6, 'Tour the British Parliament and Westminster Abbey', 'Tours of Parliament and Westminster Abbey', 'https://19623-presscdn-pagely.netdna-ssl.com/wp-content/uploads/2014/05/parliament-feat.jpg', 100),
 (22, 4, 6, 'Harry Potter Behind the Scenes Tour', 'Tour Warner Brothers\' Studios in London for a BTS look at the Harry Potter Stages', 'https://d1wgio6yfhqlw1.cloudfront.net/sysimages/product/resized6/The_Great_Hall_3865_21763.jpg', 96),
-(23, 2, 6, 'Gardens by the Bay Tour', 'Gardens by the Bay is part of a strategy by the Singapore government to transform Singapore from a \"Garden City\" to a \"City in a Garden\". The stated aim is to raise the quality of life by enhancing greenery and flora in the city.', 'http://static.asiawebdirect.com/m/phuket/portals/www-singapore-com/homepage/attractions/gardens-by-the-bay/pagePropertiesImage/gardens-by-the-bay-singapore.jpg.jpg', 24);
+(23, 2, 6, 'Gardens by the Bay Tour', 'Gardens by the Bay is part of a strategy by the Singapore government to transform Singapore from a \"Garden City\" to a \"City in a Garden\". The stated aim is to raise the quality of life by enhancing greenery and flora in the city.', 'http://static.asiawebdirect.com/m/phuket/portals/www-singapore-com/homepage/attractions/gardens-by-the-bay/pagePropertiesImage/gardens-by-the-bay-singapore.jpg.jpg', 24),
+(24, 4, 1, 'Personalised Photography Session', 'I will bring you to the most scenic spots in London for a personalised photoshoot, this package comes with 40 digital photos of you!', 'http://www.margaritakarenko.com/wp-content/uploads/2014/04/London_outdoor_fashion_portrait_photoshoot_Big-Ben_01.jpg', 150),
+(25, 1, 2, 'Authentic Ramen Making Lesson', 'I will teach you how to make Authentic Japanese Ramen in my comfortable kitchen', 'https://i.ytimg.com/vi/qRSZEN6g8jY/maxresdefault.jpg', 50),
+(26, 3, 7, 'Abstract Art Lesson', 'I am an artist and i will show you my gallery. We will have a lesson on abstract art and you get to paint on a canvas', 'http://hyperallergic.com/wp-content/uploads/2015/12/JohannaBarron_%C2%A9JamesRexroad_8009713_lr.jpg', 100),
+(30, 4, 11, 'Zumba', 'ZUMBA® is a fusion of Latin and International music / dance themes that create a dynamic, exciting, and based on the principle that a workout should be \"FUN AND EASY TO DO.\" The routines feature aerobic/fitness interval training with a combination of fast', 'https://studiofitnessvictoria.com/wp-content/uploads/sites/20/2017/05/zumba_class.jpg', 80);
 
 -- --------------------------------------------------------
 
@@ -224,7 +220,29 @@ INSERT INTO `experiences_tags` (`id`, `experience_id`, `tag_id`) VALUES
 (84, 23, 24),
 (85, 23, 34),
 (86, 23, 40),
-(87, 23, 31);
+(87, 23, 31),
+(88, 24, 41),
+(89, 24, 35),
+(90, 24, 42),
+(91, 24, 43),
+(92, 25, 44),
+(93, 25, 7),
+(94, 25, 45),
+(95, 25, 46),
+(96, 25, 47),
+(97, 26, 23),
+(98, 26, 48),
+(99, 26, 26),
+(100, 26, 49),
+(101, 26, 50),
+(102, 26, 51),
+(103, 27, 4),
+(104, 28, 31),
+(105, 29, 6),
+(106, 29, 52),
+(107, 29, 4),
+(108, 30, 53),
+(109, 30, 54);
 
 -- --------------------------------------------------------
 
@@ -281,7 +299,21 @@ INSERT INTO `tags` (`id`, `name`) VALUES
 (37, 'boat'),
 (38, 'famous'),
 (39, 'singapore'),
-(40, 'romance');
+(40, 'romance'),
+(41, 'photoshoot'),
+(42, 'england'),
+(43, 'photo'),
+(44, 'ramen'),
+(45, 'cooking'),
+(46, 'tokyo'),
+(47, 'authentic'),
+(48, 'painting'),
+(49, 'artwork'),
+(50, 'gallery'),
+(51, 'lesson'),
+(52, 'asia'),
+(53, 'dance'),
+(54, 'exercise');
 
 -- --------------------------------------------------------
 
@@ -309,7 +341,9 @@ INSERT INTO `users` (`id`, `name`, `date_of_birth`, `country`, `email`, `phone`,
 (3, 'Jerry Mouse', '2000-01-01', 'Tom Cat', 'jerry@runs.tom', '9119119111', 'jerrymouse'),
 (4, 'Goofy Goof', '2002-02-22', 'Venezuela', 'goot.goot.com', '222222222', 'goofgoof'),
 (5, 'Christopher Columbu', '1621-10-08', 'Spain', 'christopher@columbus.com', '2223334444', 'chrisc'),
-(6, 'Gyles Batara', '1993-10-03', 'United States', 'gyles.batara@live.com', '2063991797', 'godawgs12');
+(6, 'Gyles Batara', '1993-10-03', 'United States', 'gyles.batara@live.com', '2063991797', 'gylesb'),
+(7, 'Vonda Gracie', '1970-02-01', 'France', 'vonda@vondagracie.com', '3334445555', 'vondagracie'),
+(10, 'jesse', '1989-05-14', 'usa', '1@1.com', '214235234', '1');
 
 --
 -- Indexes for dumped tables
@@ -359,7 +393,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `cities`
 --
@@ -369,22 +403,22 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `experiences`
 --
 ALTER TABLE `experiences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `experiences_tags`
 --
 ALTER TABLE `experiences_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
